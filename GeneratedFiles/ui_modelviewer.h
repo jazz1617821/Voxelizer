@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'modelviewer.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.3
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -38,6 +38,8 @@ class Ui_ModelViewerClass
 public:
     QAction *actionOpen;
     QAction *actionQuit;
+    QAction *actionVoxelModel;
+    QAction *actionRaw;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout;
     QTabWidget *tab_mainWidget;
@@ -62,6 +64,7 @@ public:
     QPushButton *pb_voxelize;
     QMenuBar *menuBar;
     QMenu *menuFile;
+    QMenu *menuExport;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -74,6 +77,10 @@ public:
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionQuit = new QAction(ModelViewerClass);
         actionQuit->setObjectName(QStringLiteral("actionQuit"));
+        actionVoxelModel = new QAction(ModelViewerClass);
+        actionVoxelModel->setObjectName(QStringLiteral("actionVoxelModel"));
+        actionRaw = new QAction(ModelViewerClass);
+        actionRaw->setObjectName(QStringLiteral("actionRaw"));
         centralWidget = new QWidget(ModelViewerClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
@@ -154,7 +161,7 @@ public:
         sa_modelTools->setWidgetResizable(true);
         sa_modelToolsContents = new QWidget();
         sa_modelToolsContents->setObjectName(QStringLiteral("sa_modelToolsContents"));
-        sa_modelToolsContents->setGeometry(QRect(0, 0, 65, 321));
+        sa_modelToolsContents->setGeometry(QRect(0, 0, 65, 322));
         gridLayout = new QGridLayout(sa_modelToolsContents);
         gridLayout->setSpacing(0);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -214,6 +221,8 @@ public:
         menuBar->setGeometry(QRect(0, 0, 600, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
+        menuExport = new QMenu(menuFile);
+        menuExport->setObjectName(QStringLiteral("menuExport"));
         ModelViewerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(ModelViewerClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -224,8 +233,11 @@ public:
 
         menuBar->addAction(menuFile->menuAction());
         menuFile->addAction(actionOpen);
+        menuFile->addAction(menuExport->menuAction());
         menuFile->addSeparator();
         menuFile->addAction(actionQuit);
+        menuExport->addAction(actionVoxelModel);
+        menuExport->addAction(actionRaw);
 
         retranslateUi(ModelViewerClass);
 
@@ -237,19 +249,22 @@ public:
 
     void retranslateUi(QMainWindow *ModelViewerClass)
     {
-        ModelViewerClass->setWindowTitle(QApplication::translate("ModelViewerClass", "Voxelizer", Q_NULLPTR));
-        actionOpen->setText(QApplication::translate("ModelViewerClass", "Open", Q_NULLPTR));
-        actionQuit->setText(QApplication::translate("ModelViewerClass", "Quit", Q_NULLPTR));
+        ModelViewerClass->setWindowTitle(QApplication::translate("ModelViewerClass", "Voxelizer", nullptr));
+        actionOpen->setText(QApplication::translate("ModelViewerClass", "Open", nullptr));
+        actionQuit->setText(QApplication::translate("ModelViewerClass", "Quit", nullptr));
+        actionVoxelModel->setText(QApplication::translate("ModelViewerClass", "Voxel Model", nullptr));
+        actionRaw->setText(QApplication::translate("ModelViewerClass", "Raw", nullptr));
         QTreeWidgetItem *___qtreewidgetitem = wid_modelAttributes->headerItem();
-        ___qtreewidgetitem->setText(1, QApplication::translate("ModelViewerClass", "Value", Q_NULLPTR));
-        ___qtreewidgetitem->setText(0, QApplication::translate("ModelViewerClass", "Attribute", Q_NULLPTR));
-        pb_translate->setText(QApplication::translate("ModelViewerClass", "Translate", Q_NULLPTR));
-        pb_view->setText(QApplication::translate("ModelViewerClass", "View", Q_NULLPTR));
-        pb_rotate->setText(QApplication::translate("ModelViewerClass", "Rotate", Q_NULLPTR));
-        pb_scale->setText(QApplication::translate("ModelViewerClass", "Scale", Q_NULLPTR));
-        pb_voxelize->setText(QApplication::translate("ModelViewerClass", "Voxelize", Q_NULLPTR));
-        tab_mainWidget->setTabText(tab_mainWidget->indexOf(tab_model), QApplication::translate("ModelViewerClass", "Model", Q_NULLPTR));
-        menuFile->setTitle(QApplication::translate("ModelViewerClass", "File", Q_NULLPTR));
+        ___qtreewidgetitem->setText(1, QApplication::translate("ModelViewerClass", "Value", nullptr));
+        ___qtreewidgetitem->setText(0, QApplication::translate("ModelViewerClass", "Attribute", nullptr));
+        pb_translate->setText(QApplication::translate("ModelViewerClass", "Translate", nullptr));
+        pb_view->setText(QApplication::translate("ModelViewerClass", "View", nullptr));
+        pb_rotate->setText(QApplication::translate("ModelViewerClass", "Rotate", nullptr));
+        pb_scale->setText(QApplication::translate("ModelViewerClass", "Scale", nullptr));
+        pb_voxelize->setText(QApplication::translate("ModelViewerClass", "Voxelize", nullptr));
+        tab_mainWidget->setTabText(tab_mainWidget->indexOf(tab_model), QApplication::translate("ModelViewerClass", "Model", nullptr));
+        menuFile->setTitle(QApplication::translate("ModelViewerClass", "File", nullptr));
+        menuExport->setTitle(QApplication::translate("ModelViewerClass", "Export", nullptr));
     } // retranslateUi
 
 };

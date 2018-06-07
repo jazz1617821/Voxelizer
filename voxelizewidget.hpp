@@ -24,6 +24,9 @@ private slots:
 	void changeVoxelResolution(void);
 	void changeSolid(int state);
 
+signals:
+	void sentVoxelModel(VoxelModel*);
+
 private:
 	void moveWidget(int x, int y);
 

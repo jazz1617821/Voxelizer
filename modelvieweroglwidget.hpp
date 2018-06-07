@@ -112,6 +112,7 @@ private:
 	LightWidget *lightWidget;
 	//ModelSceneManagerWidget *managerWidget;
 	ImageProjectionWidget *textureWidget;
+public:
 	VoxelizeWidget *voxelizeWidget;
 
 private:

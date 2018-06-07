@@ -1,5 +1,6 @@
 #include "modelviewer.hpp"
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QString>
 
 float g_originWidth;
@@ -13,6 +14,9 @@ ModelViewer::ModelViewer(QWidget *parent)
 	g_originWidth = this->width();
 	g_originHeight = this->height();
 
+	ui.actionRaw->setDisabled(true);
+	ui.actionVoxelModel->setDisabled(true);
+
 	connect(this, SIGNAL(openSTL(const char*)), ui.ogl_modelViewer, SLOT(openSTL(const char*)));
 	connect(ui.ogl_modelViewer, SIGNAL(sendModelScene(MeshModelScene*)), ui.wid_modelScene, SLOT(updateModelScene(MeshModelScene*)));
 	connect(ui.ogl_modelViewer, SIGNAL(selectModel(MeshModelItem*)), ui.wid_modelScene, SLOT(modelSelected(MeshModelItem*)));
@@ -23,6 +27,7 @@ ModelViewer::ModelViewer(QWidget *parent)
 	connect(ui.pb_scale, SIGNAL(released(void)), ui.ogl_modelViewer, SLOT(changeToScaleMode(void)));
 	connect(ui.pb_voxelize, SIGNAL(released(void)), ui.ogl_modelViewer, SLOT(showVoxelizeWidget(void)));
 	connect(ui.ogl_modelViewer, SIGNAL(sendModelObject(MeshModelObject*)), this, SLOT(setModelObjectAttributePanel(MeshModelObject*)));
+	connect(ui.ogl_modelViewer->voxelizeWidget, SIGNAL(sentVoxelModel(VoxelModel*)),this, SLOT(getVoxelModel(VoxelModel*)));
 }
 
 ModelViewer::~ModelViewer()
@@ -37,6 +42,15 @@ void ModelViewer::resizeEvent(QResizeEvent* e)
 
 }
 
+// SLOTS
+
+void ModelViewer::getVoxelModel(VoxelModel* vmodel) 
+{
+	this->vmodel = vmodel;
+	ui.actionRaw->setEnabled(true);
+	ui.actionVoxelModel->setEnabled(true);
+}
+
 void ModelViewer::on_actionOpen_triggered()
 {
 	QString filename = QFileDialog::getOpenFileName(this, tr("Open File"), QString(), tr("All Files (*.inf *.stl *.obj);;Info Files (*.inf);;STL Files (*.stl);;Wavefront OBJ (*.obj);;"));
@@ -49,6 +63,47 @@ void ModelViewer::on_actionOpen_triggered()
 		if (!strcmp(fe, ".stl")) {
 			emit(openSTL(str));
 		}
+	}
+}
+
+
+void ModelViewer::on_actionRaw_triggered()
+{
+
+}
+
+void ModelViewer::on_actionVoxelModel_triggered()
+{
+	QString filename;
+	const char *str;
+	const char *fe;
+
+	if (vmodel != NULL) {
+		filename = QFileDialog::getSaveFileName(
+			this,
+			tr("Save File"),
+			"untitled",
+			tr("Model Files (*.vm);; Data Files (*.vdat)"));
+		QByteArray ba = filename.toLatin1();
+		str = ba.data();
+		fe = strrchr(str, '.');
+		if (!filename.isEmpty()) {
+			if (!strcmp(fe, ".vm")) {
+				saveVM(str, vmodel, 0);
+				return;
+			}
+			else if (!strcmp(fe, ".vdat")) {
+				//export vdata
+
+
+			}
+		}
+		else {
+			QMessageBox::information(this, tr("Warning"), "Failed to save the file.");
+		}
+	}
+	else {
+		QMessageBox::information(this, tr("Warning"), "There is no data to export.");
 	}
 }
 
@@ -104,3 +159,4 @@ void ModelViewer::setModelObjectAttributePanel(MeshModelObject* obj)
 	}
 
 }
+

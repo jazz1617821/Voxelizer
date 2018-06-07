@@ -1,6 +1,4 @@
 ﻿#include "voxelizewidget.hpp"
-#include <QMessageBox>
-#include <QFileDialog>
 
 #define X 0
 #define Y 1
@@ -109,9 +107,6 @@ void VoxelizeWidget::dragDone(int x, int y)
 
 void VoxelizeWidget::confirm(void)
 {
-	QString filename;
-	const char *str;
-	const char *fe;
 	VoxelModel *vmodel;
 	int intRes[3];
 
@@ -125,34 +120,10 @@ void VoxelizeWidget::confirm(void)
 		vmodel = NULL;
 
 	if (vmodel != NULL) {
-		filename = QFileDialog::getSaveFileName(
-			this,
-			tr("Save File"),
-			"untitled",
-			tr("Model Files (*.vm);; Data Files (*.vdat)"));
-		QByteArray ba = filename.toLatin1();
-		str = ba.data();
-		fe = strrchr(str, '.');
-
-		if (!filename.isEmpty()) {
-			if (!strcmp(fe, ".vm")) {
-				saveVM(str, vmodel, 0);
-				return;
-			}
-			else if (!strcmp(fe, ".vdat")) {
-				//export vdata
-
-
-			}
-		}
-		else {
-			QMessageBox::information(this, tr("Warning"), "Failed to save the file.");
-		}
+		emit sentVoxelModel(vmodel);
 	}
-	else {
-		QMessageBox::information(this, tr("Warning"), "There is no data to export.");
-	}
-	// close
+
+	//// close
 	this->hide();
 }
 

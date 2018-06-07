@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'voxelizewidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.3
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -247,21 +247,21 @@ public:
 
     void retranslateUi(QWidget *VoxelizeWidget)
     {
-        VoxelizeWidget->setWindowTitle(QApplication::translate("VoxelizeWidget", "VoxelizeWidget", Q_NULLPTR));
-        lb_voxelSize->setText(QApplication::translate("VoxelizeWidget", "Voxel Size", Q_NULLPTR));
-        lb_voxelSizeX->setText(QApplication::translate("VoxelizeWidget", "X:", Q_NULLPTR));
-        le_voxelSizeX->setText(QApplication::translate("VoxelizeWidget", "0.4", Q_NULLPTR));
-        lb_voxelSizeY->setText(QApplication::translate("VoxelizeWidget", "Y:", Q_NULLPTR));
-        le_voxelSizeY->setText(QApplication::translate("VoxelizeWidget", "0.4", Q_NULLPTR));
-        lb_voxelSizeZ->setText(QApplication::translate("VoxelizeWidget", "Z:", Q_NULLPTR));
-        le_voxelSizeZ->setText(QApplication::translate("VoxelizeWidget", "0.4", Q_NULLPTR));
-        lb_resolution->setText(QApplication::translate("VoxelizeWidget", "Resolution", Q_NULLPTR));
-        lb_resolutionX->setText(QApplication::translate("VoxelizeWidget", "X:", Q_NULLPTR));
-        lb_resolutionY->setText(QApplication::translate("VoxelizeWidget", "Y:", Q_NULLPTR));
-        lb_resolutionZ->setText(QApplication::translate("VoxelizeWidget", "Z:", Q_NULLPTR));
-        lb_solidModel->setText(QApplication::translate("VoxelizeWidget", "infill", Q_NULLPTR));
+        VoxelizeWidget->setWindowTitle(QApplication::translate("VoxelizeWidget", "VoxelizeWidget", nullptr));
+        lb_voxelSize->setText(QApplication::translate("VoxelizeWidget", "Voxel Size", nullptr));
+        lb_voxelSizeX->setText(QApplication::translate("VoxelizeWidget", "X:", nullptr));
+        le_voxelSizeX->setText(QApplication::translate("VoxelizeWidget", "0.4", nullptr));
+        lb_voxelSizeY->setText(QApplication::translate("VoxelizeWidget", "Y:", nullptr));
+        le_voxelSizeY->setText(QApplication::translate("VoxelizeWidget", "0.4", nullptr));
+        lb_voxelSizeZ->setText(QApplication::translate("VoxelizeWidget", "Z:", nullptr));
+        le_voxelSizeZ->setText(QApplication::translate("VoxelizeWidget", "0.4", nullptr));
+        lb_resolution->setText(QApplication::translate("VoxelizeWidget", "Resolution", nullptr));
+        lb_resolutionX->setText(QApplication::translate("VoxelizeWidget", "X:", nullptr));
+        lb_resolutionY->setText(QApplication::translate("VoxelizeWidget", "Y:", nullptr));
+        lb_resolutionZ->setText(QApplication::translate("VoxelizeWidget", "Z:", nullptr));
+        lb_solidModel->setText(QApplication::translate("VoxelizeWidget", "infill", nullptr));
         lb_solidModelSpace->setText(QString());
-        ckb_solidModel->setText(QApplication::translate("VoxelizeWidget", "Enable", Q_NULLPTR));
+        ckb_solidModel->setText(QApplication::translate("VoxelizeWidget", "Enable", nullptr));
     } // retranslateUi
 
 };

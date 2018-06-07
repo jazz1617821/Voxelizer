@@ -4,6 +4,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QResizeEvent>
 #include "ui_modelviewer.h"
+#include "voxelizewidget.hpp"
 
 class ModelViewer : public QMainWindow
 {
@@ -21,11 +22,16 @@ signals:
 	
 
 public slots:
+	void getVoxelModel(VoxelModel*);
 	void on_actionOpen_triggered(void);
+	void on_actionRaw_triggered(void);
+	void on_actionVoxelModel_triggered(void);
 	void setModelObjectAttributePanel(MeshModelObject* obj);
+
 
 private:
 	Ui::ModelViewerClass ui;
+	VoxelModel* vmodel;
 
 };
 

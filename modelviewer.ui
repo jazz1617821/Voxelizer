@@ -192,7 +192,7 @@
               <x>0</x>
               <y>0</y>
               <width>65</width>
-              <height>321</height>
+              <height>322</height>
              </rect>
             </property>
             <layout class="QGridLayout" name="gridLayout">
@@ -343,7 +343,15 @@
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuExport">
+     <property name="title">
+      <string>Export</string>
+     </property>
+     <addaction name="actionVoxelModel"/>
+     <addaction name="actionRaw"/>
+    </widget>
     <addaction name="actionOpen"/>
+    <addaction name="menuExport"/>
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
    </widget>
@@ -366,6 +374,16 @@
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionVoxelModel">
+   <property name="text">
+    <string>Voxel Model</string>
+   </property>
+  </action>
+  <action name="actionRaw">
+   <property name="text">
+    <string>Raw</string>
    </property>
   </action>
  </widget>
