@@ -167,6 +167,9 @@
     <ClCompile Include="image3D.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RawFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="modelviewer.ui">
@@ -262,6 +265,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="image3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RawFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

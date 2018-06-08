@@ -2,6 +2,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QString>
+#include "RawFile.h"
 
 float g_originWidth;
 float g_originHeight;
@@ -69,7 +70,30 @@ void ModelViewer::on_actionOpen_triggered()
 
 void ModelViewer::on_actionRaw_triggered()
 {
+	QString filename;
+	const char *str;
+	const char *fe;
 
+	if (vmodel != NULL) {
+		filename = QFileDialog::getSaveFileName(
+			this,
+			tr("Save File"),
+			"untitled",
+			tr("Model Files (*.raw)"));
+		QByteArray ba = filename.toLatin1();
+		str = ba.data();
+		fe = strrchr(str, '.');
+		if (!filename.isEmpty()) {
+			saveRaw(str,vmodel->items->vdata);
+			return;
+		}
+		else {
+			QMessageBox::information(this, tr("Warning"), "Failed to save the raw file.");
+		}
+	}
+	else {
+		QMessageBox::information(this, tr("Warning"), "There is no data to export.");
+	}
 }
 
 void ModelViewer::on_actionVoxelModel_triggered()
