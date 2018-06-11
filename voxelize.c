@@ -1201,7 +1201,7 @@ VoxelObject *modelVoxelize(MeshModel *model, float voxSize[3], bool isSolid)
 
 // debug bmp
 #ifdef _DEBUG
-	imgSize = resolution[X] * resolution[Z];
+	/*imgSize = resolution[X] * resolution[Z];
 	testImg = (unsigned char*)calloc(imgSize, sizeof(unsigned char));
 
 	printf("Write voxel data to bmp file\n");
@@ -1225,7 +1225,7 @@ VoxelObject *modelVoxelize(MeshModel *model, float voxSize[3], bool isSolid)
 		saveBMP(path, resolution[X], resolution[Z], testImg);
 		memset(testImg, 0, imgSize);
 	}
-	printf("Done...\n");
+	printf("Done...\n");*/
 #endif // _DEBUG
 
 

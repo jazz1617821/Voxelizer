@@ -15,8 +15,8 @@ ModelViewer::ModelViewer(QWidget *parent)
 	g_originWidth = this->width();
 	g_originHeight = this->height();
 
-	ui.actionRaw->setDisabled(true);
 	ui.actionVoxelModel->setDisabled(true);
+	ui.actionRaw->setDisabled(true);
 
 	connect(this, SIGNAL(openSTL(const char*)), ui.ogl_modelViewer, SLOT(openSTL(const char*)));
 	connect(ui.ogl_modelViewer, SIGNAL(sendModelScene(MeshModelScene*)), ui.wid_modelScene, SLOT(updateModelScene(MeshModelScene*)));
@@ -70,30 +70,30 @@ void ModelViewer::on_actionOpen_triggered()
 
 void ModelViewer::on_actionRaw_triggered()
 {
-	QString filename;
-	const char *str;
-	const char *fe;
+    QString filename;
+    const char *str;
+    const char *fe;
 
-	if (vmodel != NULL) {
-		filename = QFileDialog::getSaveFileName(
-			this,
-			tr("Save File"),
-			"untitled",
-			tr("Model Files (*.raw)"));
-		QByteArray ba = filename.toLatin1();
-		str = ba.data();
-		fe = strrchr(str, '.');
-		if (!filename.isEmpty()) {
-			saveRaw(str,vmodel->items->vdata);
-			return;
-		}
-		else {
-			QMessageBox::information(this, tr("Warning"), "Failed to save the raw file.");
-		}
-	}
-	else {
-		QMessageBox::information(this, tr("Warning"), "There is no data to export.");
-	}
+    if (vmodel != NULL) {
+        filename = QFileDialog::getSaveFileName(
+            this,
+            tr("Save File"),
+            "untitled",
+            tr("Model Files (*.raw)"));
+        QByteArray ba = filename.toLatin1();
+        str = ba.data();
+        fe = strrchr(str, '.');
+        if (!filename.isEmpty()) {
+            saveRaw(str,((VoxelObject*)(vmodel->root->node.firstChild))->dataItem->vdata);
+            return;
+        }
+        else {
+            QMessageBox::information(this, tr("Warning"), "Failed to save the raw file.");
+        }
+    }
+    else {
+        QMessageBox::information(this, tr("Warning"), "There is no data to export.");
+    }
 }
 
 void ModelViewer::on_actionVoxelModel_triggered()
@@ -183,4 +183,3 @@ void ModelViewer::setModelObjectAttributePanel(MeshModelObject* obj)
 	}
 
 }
-
