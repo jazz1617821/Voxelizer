@@ -230,7 +230,7 @@
     <ClCompile Include="mymath.c" />
     <ClCompile Include="objecttree.c" />
     <ClCompile Include="queue.c" />
-    <ClCompile Include="RawFile.cpp" />
+    <ClCompile Include="RawFile.c" />
     <ClCompile Include="ray.c" />
     <ClCompile Include="stack.c" />
     <ClCompile Include="titlebar.cpp" />

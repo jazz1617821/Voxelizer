@@ -1,9 +1,10 @@
+extern "C" {
+#include "RawFile.h"
+}
 #include "modelviewer.hpp"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QString>
-#include "RawFile.h"
-
 float g_originWidth;
 float g_originHeight;
 

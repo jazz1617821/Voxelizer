@@ -811,6 +811,7 @@ VoxelObject *modelVoxelize(MeshModel *model, float voxSize[3], bool isSolid)
 	vobj = newVoxelObject();
 	strcpy(vobj->name, transModel->name);
 	vdata = newVoxelData();
+	vdata->model = model;
 	strcpy(vdata->name, transModel->name);
 	vdata->voxelSize[X] = voxSize[X];
 	vdata->voxelSize[Y] = voxSize[Y];

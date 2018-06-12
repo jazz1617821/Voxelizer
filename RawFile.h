@@ -4,7 +4,7 @@
 #include "voxel.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <string>
+#include <string.h>
 
 void saveRaw(const char*, VoxelData*);
 void writeInfoFile(const char*, VoxelData*);

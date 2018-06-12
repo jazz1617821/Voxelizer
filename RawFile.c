@@ -40,6 +40,8 @@ void writeInfoFile(const char * filepath, VoxelData * vdata)
 	//resolution = 101x101x101
 	//sample - type = float
 	//voxel - size = 0.010000:0.010000 : 0.010000
+	//ratio:0.10000x0.10000x0.10000
+	//original-location=100,200,100
 	//endian = little
 
 	fprintf(fp, "raw-file=%s\n", filename);
@@ -47,6 +49,7 @@ void writeInfoFile(const char * filepath, VoxelData * vdata)
 	fprintf(fp, "sample-type=unsigned char\n");
 	fprintf(fp, "voxel-size=%f:%f:%f\n", vdata->voxelSize[0], vdata->voxelSize[1], vdata->voxelSize[2]);
 	fprintf(fp, "ratio=%f:%f:%f\n", vdata->voxelSize[0], vdata->voxelSize[1], vdata->voxelSize[2]);
+	fprintf(fp, "original-location=%f,%f,%f\n", vdata->model->bbox->min[0], vdata->model->bbox->min[1], vdata->model->bbox->min[2]);
 	fprintf(fp, "endian=little\n");
 
 	fclose(fp);
@@ -61,26 +64,4 @@ void writeRawFile(const char * filepath, VoxelData * vdata)
 	fclose(fp);
 	
 	return;
-}
-
-void * readRaw(const char *)
-{
-	return nullptr;
-}
-
-void readInfoFile(const char *)
-{
-
-}
-
-float * readRawFileFloat(const char *)
-{
-
-	return nullptr;
-}
-
-unsigned char * readRawFileUC(const char *)
-{
-
-	return nullptr;
 }
